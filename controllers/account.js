@@ -61,32 +61,50 @@ class AccountController {
   }
 
   static async performTransactionPage(req, res) {
-    let account = await AccountService.findByAccountNumber(req.query.account_number)
-    if (account) {
-      let transactions = await TransactionService.findByAccountNumber(req.query.account_number)
-      res.render('perform-transaction', { account, account_found: true, transactions })
-    } else {
-      res.render('perform-transaction', { account_found: false })
+    try {
+      let account = await AccountService.findByAccountNumber(req.query.account_number)
+      if (account) {
+        let transactions = await TransactionService.findByAccountNumber(req.query.account_number)
+        res.render('perform-transaction', { account, account_found: true, transactions })
+      } else {
+        res.render('perform-transaction', { account_found: false })
+      }
+    } catch (error) {
+      req.flash('error_msg', 'Invalid Account Number')
+      res.redirect('/accounts/perform-transaction')
     }
+    
   }
 
   static async depositPage(req, res) {
-    let account = await AccountService.findByAccountNumber(req.query.account_number)
-    if (account) {
-      let transactions = await TransactionService.findByAccountNumber(req.query.account_number)
-      res.render('account-deposit', { account, account_found: true, transactions })
-    } else {
-      res.render('account-deposit', { account_found: false })
+    try {
+      let account = await AccountService.findByAccountNumber(req.query.account_number)
+      if (account) {
+        let transactions = await TransactionService.findByAccountNumber(req.query.account_number)
+        res.render('account-deposit', { account, account_found: true, transactions })
+      } else {
+        res.render('account-deposit', { account_found: false })
+      }
+    } catch (error) {
+      req.flash('error_msg', 'Invalid Account Number')
+      res.redirect('/accounts/deposit')
     }
+    
   }
 
   static async withdrawalPage(req, res) {
-    let account = await AccountService.findByAccountNumber(req.query.account_number)
+    
+    try {
+      let account = await AccountService.findByAccountNumber(req.query.account_number)
     if (account) {
       let transactions = await TransactionService.findByAccountNumber(req.query.account_number)
       res.render('account-withdrawal', { account, account_found: true, transactions })
     } else {
       res.render('account-withdrawal', { account_found: false })
+    }
+    } catch (error) {
+      req.flash('error_msg', 'Invalid Account Number')
+      res.redirect('/accounts/withdrawal')
     }
   }
 
