@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col-lg-6 col-md-6">
+    <h3>Welcome to <%= bank_name %></h3>
+    <div class="alert alert-warning" role="alert">
+      <strong>Latest Notification: </strong>
+      <span><%= notifications[0].message %></span>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6">
+    <div class="card text-black bg-white">
+      <img class="card-img-top" src="holder.js/100px180/" alt="">
+      <div class="card-body">
+        <a href="/accounts/summary" class="btn btn-outline-info">Account Summary</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6">
+    <div class="card text-black bg-white">
+      <img class="card-img-top" src="holder.js/100px180/" alt="">
+      <div class="card-body">
+        <a href="/accounts/transer" class="btn btn-outline-info">Transfer Money</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-6 col-md-6">
+    <img src="holder.js/100px180/">
+  </div>
+  <div class="col-lg-3 col-md-6">
+    <div class="card text-black bg-white">
+      <img class="card-img-top" src="holder.js/100px180/" alt="">
+      <div class="card-body">
+        <a href="/accounts/check-notification" class="btn btn-outline-info">Check Notification</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6">
+    <div class="card text-black bg-white">
+      <img class="card-img-top" src="holder.js/100px180/" alt="">
+      <div class="card-body">
+        <a href="/accounts/contact-us" class="btn btn-outline-info">Contact Us</a>
+      </div>
+    </div>
+  </div>
+</div>

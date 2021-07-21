@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="96x96" href="/images/favicon-96x96.png">
+  <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css" />
+  <link rel="stylesheet" href="/css/app.css" type="text/css" />
+  <link rel="stylesheet" href="/css/style2.css" type="text/css" />
+  <title>Dashboard | <%= appname %></title>
+</head>
+<body>
+  <nav class="navbar navbar-dark bg-primary">
+		<a class="navbar-brand" href="/"><img class="logo-brand mr-4" src="/images/favicon-96x96.png" alt=""> <%= appname %></a>
+  </nav>
+  
+	<main class="main">
+		<aside class="sidenav">
+      <ul class="nav">
+        <li class="nav-item">
+          <a href="/" class="nav-link"><i class="fa fa-dashboard mr-2" aria-hidden="true"></i> Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a href="/accounts/statement" class="nav-link"><i class="fa fa-anchor mr-2" aria-hidden="true"></i> Account Statement</a>
+        </li>
+        <li class="nav-item">
+          <a href="/accounts/transfer" class="nav-link"><i class="fa fa-plus-circle mr-2" aria-hidden="true"></i> Funds Transfer</a>
+        </li>
+        <li class="nav-item">
+          <a href="/accounts/notifications" class="nav-link"><i class="fa microphone mr-2" aria-hidden="true"></i>Check Notifications</a>
+        </li>
+        <li class="nav-item">
+          <a href="/accounts/send-feedback" class="nav-link"><i class="fa microphone mr-2" aria-hidden="true"></i>Send Feedback</a>
+        </li>
+        <li class="nav-item">
+          <a href="/logout" class="nav-link"><i class="fa fa-sign-out mr-2" aria-hidden="true"></i> Logout</a>
+        </li>
+      </ul>
+    </aside>
+
+    <section class="main-section">
+      <div class="container-fluid">

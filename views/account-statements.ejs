@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-12">
+    <h4>Transfer History</h4>
+    <% transactions.forEach(t => { %>
+      <div class="alert alert-warning" role="alert mb-3">
+        Type: <strong><%= t.type %></strong> 
+        Amount: <strong><%= t.amount %></strong> 
+        Source: <strong><%= t.source %></strong> 
+        Receiver: <strong><%= t.receiver %></strong> 
+      </div>
+    <% }) %>
+  </div>
+</div>

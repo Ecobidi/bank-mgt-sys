@@ -1,0 +1,47 @@
+<%- include ('partials/top') %>
+<div class="row">
+  <div class="col-12 py-4">
+    <div class="d-flex justify-content-between">
+      <h2>Withdrawal Transactions</h2>
+      <div>
+        <a href="/accounts/transactions/deposit" class="btn btn-outline-primary">View Deposits</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 py-4">
+    <form class="form-inline" method="POST" action="/accounts/transactions/deposits">
+      <div class="form-group py-2">
+        <input class="form-control" name="search">
+        <button type="submit" class="btn btn-sm btn-primary">Search</button>
+      </div>
+    </form>
+    <h4 class="mb-0 bg-info py-2 text-white text-center mt-4">List of Withdrawals</h4>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Account No.</th>
+          <th>Account Name</th>
+          <th>Account Type</th>
+          <th>Amount</th>
+          <th>Date of Transaction</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% transactions.forEach(m => { %>
+          <tr>
+            <td><%= m.source.account_number %></td>
+            <td><%= m.source.account_holder_name %></td>
+            <td><%= m.source.account_type %></td>
+            <td><%= m.amount %></td>
+            <td><%= m.createdAt.toGMTString() %></td>
+          </tr>
+        <% }) %>
+        <tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+
+<%- include ('partials/bottom') %>

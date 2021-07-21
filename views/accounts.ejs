@@ -1,0 +1,49 @@
+<%- include ('partials/top') %>
+<div class="row">
+  <div class="col-12 py-4">
+    <div class="d-flex justify-content-between">
+      <h2>Bank Accounts</h2>
+    </div>
+  </div>
+
+  <div class="col-12 py-4">
+    <form class="form-inline" method="POST" action="/accounts">
+      <div class="form-group py-2">
+        <input class="form-control" name="search">
+        <button type="submit" class="btn btn-sm btn-primary">Search</button>
+      </div>
+    </form>
+    <h4 class="mb-0 bg-info py-2 text-white text-center mt-4">List of Bank Accounts</h4>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Account Holder</th>
+          <th>Account Number</th>
+          <th>Account Type</th>
+          <th>Account Balance</th>
+          <th>Contact</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% accounts.forEach(m => { %>
+          <tr>
+            <td><%= m.customer.surname + ", " + m.customer.first_name + " " + m.customer.middle_name %></td>
+            <td><%= m.account_number %></td>
+            <td><%= m.account_type %></td>
+            <td><%= m.account_balance %></td>
+            <td><%= m.customer.phone %></td>
+            <td>
+              <a class="btn btn-info btn-sm text-white" href='<%= "/accounts/perform-transaction?account_number=" + m.account_number %>'>Perform Transaction</a>
+              <a class="btn btn-danger btn-sm text-white" href='<%= "/accounts/remove/" + m._id %>'>Remove</a>
+          </td>
+          </tr>
+        <% }) %>
+        <tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+
+<%- include ('partials/bottom') %>
